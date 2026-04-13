@@ -154,9 +154,8 @@ npx expo start
 
 ## 👨‍💻 Author
 
-Divyamsh Sai  
-Aspiring Software Developer | AI & ML Student  
-Founder of Vijnah Media  
+Divyamsh Sai Vengala
+Founder – Vijnah Media | Web Developer | Freelance Graphic Designer | B.Tech AI & ML Student 
 
 ---
 
