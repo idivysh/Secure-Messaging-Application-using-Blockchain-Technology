@@ -156,7 +156,7 @@ npx expo start
 
 Divyamsh Sai Vengala  
 Founder – Vijnah Media  
-Web Developer | Freelance Graphic Designer | B.Tech AI & ML Student 
+Web Developer | App Developer | Freelance Graphic Designer | B.Tech AI & ML Student 
 
 ---
 
