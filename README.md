@@ -29,6 +29,7 @@ A secure and decentralized messaging application built using React Native (Expo)
 
 ## 📂 Project Structure
 
+```bash
 app/
 │
 ├── (tabs)/
@@ -52,15 +53,14 @@ app/
 ├── requests.tsx
 ├── notifications.tsx
 │
-├── google-services.json
-
+└── google-services.json
 ---
 
 ## ⚙️ Installation & Setup
 
 1. Clone the repository
 
-gh repo clone idivysh/Secure-Messaging-Application-using-Blockchain-Technology
+git clone https://github.com/idivysh/Secure-Messaging-Application-using-Blockchain-Technology
 cd secure-messaging-blockchain
 
 2. Install dependencies
