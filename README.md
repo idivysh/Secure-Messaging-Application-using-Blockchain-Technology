@@ -1,50 +1,165 @@
-# Welcome to your Expo app 👋
+# 🚀 Secure Messaging App using Blockchain
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A secure and decentralized messaging application built using React Native (Expo) that leverages blockchain principles to ensure privacy, integrity, and tamper-proof communication.
 
-## Get started
+---
 
-1. Install dependencies
+## 📱 Features
 
-   ```bash
-   npm install
-   ```
+- 🔐 Secure Authentication (Login/Register)  
+- 💬 Real-time Chat System  
+- ⛓️ Blockchain-based Message Validation  
+- 🔍 User Search  
+- 👥 Chat Requests & Connections  
+- 🔔 Notifications  
+- 👤 User Profiles  
+- ⚙️ Settings Management  
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tech Stack
 
-In the output, you'll find options to open the app in a
+- Frontend: React Native (Expo Router)  
+- Backend: Firebase (Authentication & Firestore)  
+- Blockchain: Hashing / Decentralized Concepts  
+- Language: TypeScript  
+- Tools: Expo, AsyncStorage  
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 Project Structure
 
-## Get a fresh project
+app/
+│
+├── (tabs)/
+│   ├── _layout.tsx
+│   ├── chatlist.tsx
+│   ├── settings.tsx
+│
+├── chat/
+│   └── [id].tsx
+│
+├── user/
+│   └── [id].tsx
+│
+├── _layout.tsx
+├── index.tsx
+├── splash.tsx
+├── login.tsx
+├── register.tsx
+├── profile.tsx
+├── search.tsx
+├── requests.tsx
+├── notifications.tsx
+│
+├── google-services.json
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## ⚙️ Installation & Setup
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+1. Clone the repository
 
-## Learn more
+git clone https://github.com/your-username/secure-messaging-blockchain.git
+cd secure-messaging-blockchain
 
-To learn more about developing your project with Expo, look at the following resources:
+2. Install dependencies
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+npm install
 
-## Join the community
+3. Setup Firebase
 
-Join our community of developers creating universal apps.
+- Add your google-services.json inside the app/ folder  
+- Enable Authentication & Firestore in Firebase  
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+4. Run the app
+
+npx expo start
+
+---
+
+## 📲 Run on Device
+
+- Scan QR using Expo Go  
+- Or run on:
+  - Android Emulator  
+  - iOS Simulator  
+
+---
+
+## ⛓️ Blockchain Concept Used
+
+- Message hashing for integrity  
+- Tamper-proof communication  
+- Decentralized validation logic  
+
+---
+
+## 📸 Screenshots
+
+### 🔐 Authentication
+
+<p align="center">
+  <img src="assets/screenshots/SplashScreen.jpeg" width="30%" />
+  <img src="assets/screenshots/LoginScreen.jpeg" width="30%" />
+  <img src="assets/screenshots/RegisterScreen.jpeg" width="30%" />
+</p>
+
+---
+
+### 💬 Chat & Messaging
+
+<p align="center">
+  <img src="assets/screenshots/ChatListBeforeNewUser.jpeg" width="30%" />
+  <img src="assets/screenshots/ChatListAfterOldUser.jpeg" width="30%" />
+</p>
+
+---
+
+### 🔍 Search & Requests
+
+<p align="center">
+  <img src="assets/screenshots/SearchScreen.jpeg" width="30%" />
+  <img src="assets/screenshots/SearchFrnd.jpeg" width="30%" />
+  <img src="assets/screenshots/NoUserFound.jpeg" width="30%" />
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/RequestSent.jpeg" width="30%" />
+  <img src="assets/screenshots/RequestAccept.jpeg" width="30%" />
+  <img src="assets/screenshots/AfterRequestAccept.jpeg" width="30%" />
+</p>
+
+---
+
+### 👤 Profile & Settings
+
+<p align="center">
+  <img src="assets/screenshots/MyProfile.jpeg" width="30%" />
+  <img src="assets/screenshots/FrndUserProfile.jpeg" width="30%" />
+  <img src="assets/screenshots/SettingsScreen.jpeg" width="30%" />
+</p>
+
+---
+
+## 🔮 Future Enhancements
+
+- Web3 Wallet Login  
+- IPFS Storage  
+- Push Notifications  
+- AI-based Spam Detection  
+- Advanced UI/UX  
+
+---
+
+## 👨‍💻 Author
+
+Divyamsh Sai  
+Aspiring Software Developer | AI & ML Student  
+Founder of Vijnah Media  
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a star on GitHub!

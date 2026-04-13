@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "39913426285",
+    "project_id": "smaubct",
+    "storage_bucket": "smaubct.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39913426285:android:664f25d9e13de8eac25e64",
+        "android_client_info": {
+          "package_name": "com.smaubct.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCETHghbPews09PD2WINKOO6qBuR1aSJVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
