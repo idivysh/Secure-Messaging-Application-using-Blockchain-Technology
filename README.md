@@ -54,28 +54,28 @@ app/
 ├── notifications.tsx
 │
 └── google-services.json
----
+```
 
 ## ⚙️ Installation & Setup
 
 1. Clone the repository
-
+```bash
 git clone https://github.com/idivysh/Secure-Messaging-Application-using-Blockchain-Technology
 cd secure-messaging-blockchain
-
+```
 2. Install dependencies
-
+```bash
 npm install
-
+```
 3. Setup Firebase
 
 - Add your google-services.json inside the app/ folder  
 - Enable Authentication & Firestore in Firebase  
 
 4. Run the app
-
+```bash
 npx expo start
-
+```
 ---
 
 ## 📲 Run on Device
