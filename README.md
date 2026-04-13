@@ -60,7 +60,7 @@ app/
 
 1. Clone the repository
 
-git clone https://github.com/your-username/secure-messaging-blockchain.git
+gh repo clone idivysh/Secure-Messaging-Application-using-Blockchain-Technology
 cd secure-messaging-blockchain
 
 2. Install dependencies
