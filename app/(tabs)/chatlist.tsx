@@ -16,7 +16,8 @@ import {
   onSnapshot,
   getDoc,
   doc,
-  
+  getDocs,
+  orderBy,
 } from 'firebase/firestore';
 import { auth, db } from '../../src/firebase/firebaseConfig';
 
@@ -25,6 +26,8 @@ type Chat = {
   otherUid: string;
   lastMessage: string;
   userData?: any;
+  unreadCount?: number;
+  updatedAt?: any;
 };
 
 export default function ChatList() {
@@ -42,12 +45,32 @@ export default function ChatList() {
 
     const q = query(
       collection(db, 'chats'),
-      where('participants', 'array-contains', user.uid)
+      where('participants', 'array-contains', user.uid),
+      orderBy('updatedAt', 'desc')
     );
 
     const unsub = onSnapshot(q, async (snap) => {
     const promises = snap.docs.map(async (docSnap) => {
     const data = docSnap.data();
+
+    // 🔥 get messages
+    const messagesSnap = await getDocs(
+      collection(db, 'chats', docSnap.id, 'messages')
+    );
+
+    // 🔥 count unread
+    let unreadCount = 0;
+
+    messagesSnap.forEach((msg) => {
+      const msgData = msg.data();
+
+      if (
+        msgData.sender !== user.uid && 
+        !msgData.readBy?.includes(user.uid)
+      ) {
+        unreadCount++;
+      }
+    });
 
     if (!data.participants || data.participants.length < 2) return null;
 
@@ -64,6 +87,8 @@ export default function ChatList() {
       otherUid,
       lastMessage: data.lastMessage ?? '',
       userData: userDoc.exists() ? userDoc.data() : null,
+      unreadCount,
+      updatedAt: data.updatedAt || null,
     };
   });
 
@@ -140,6 +165,7 @@ export default function ChatList() {
 
   return (
     <View style={{ flex: 1, backgroundColor: theme.background }}>
+      
       {/* ---------- HEADER ---------- */}
       <View
         style={{
@@ -242,29 +268,63 @@ export default function ChatList() {
               </View>
             )}
             <View style={{ flex: 1 }}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '600',
+                color: theme.text,
+              }}
+            >
+              {item.userData?.username || 'User'}
+            </Text>
+
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+              {item.lastMessage ? (
                 <Text
                   style={{
-                    fontSize: 16,
-                    fontWeight: '600',
-                    color: theme.text,
+                    fontSize: 13,
+                    color: theme.subText,
+                    marginTop: 4,
+                    flex: 1,
+                  }}
+                  numberOfLines={1}
+                >
+                  {item.lastMessage}
+                </Text>
+              ) : null}
+
+              {item.updatedAt?.seconds && (
+                <Text
+                  style={{
+                    fontSize: 10,
+                    color: theme.subText,
+                    marginLeft: 8,
                   }}
                 >
-                  {item.userData?.username || 'User'}
+                  {new Date(item.updatedAt.seconds * 1000).toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
                 </Text>
+              )}
 
-                {item.lastMessage ? (
-                  <Text
-                    style={{
-                      fontSize: 13,
-                      color: theme.subText,
-                      marginTop: 4,
-                    }}
-                    numberOfLines={1}
-                  >
-                    {item.lastMessage}
+              {/* 🔴 UNREAD BADGE */}
+              {(item.unreadCount ?? 0) > 0 && (
+                <View
+                  style={{
+                    backgroundColor: theme.primary,
+                    borderRadius: 10,
+                    paddingHorizontal: 6,
+                    marginLeft: 8,
+                  }}
+                >
+                  <Text style={{ color: 'white', fontSize: 10 }}>
+                    {item.unreadCount}
                   </Text>
-                ) : null}
+                </View>
+              )}
             </View>
+          </View>
           </TouchableOpacity>
         )}
       />
